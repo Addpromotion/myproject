@@ -1,0 +1,7 @@
+<div class="nav-links">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="button">Сохранить</button>
+</form>
+</div>

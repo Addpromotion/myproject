@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<div class="nav-links">
+<head>
+    <title>Список продуктов</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <h1>СПИСОК ПРОДУКТОВ</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                {% if product.photo %}
+                    <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="max-width: 100px;">
+                {% endif %}
+                {{ product.name }} - <a href="{% url 'delete_product' product.id %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_product' %}" class="button">Добавить продукт</a>
+    <a href="{% url 'home' %}" class="button">Перейти на главную страницу</a>
+</body>
+<div class="nav-links">
+</html>

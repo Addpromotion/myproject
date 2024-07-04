@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="nav-links">
+    <title>Заказы клиента</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Заказы {{ customer.name }} за период: {{ period }}</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.description }} - ${{ product.price }}</li>
+        {% empty %}
+            <li>Ничего не найдено за указанный период</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'customer_list' %}" class="button">Обратно к списку клиентов</a>
+</body>
+</div>
+</html>

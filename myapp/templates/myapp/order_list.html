@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<div class="nav-links">
+<head>
+    <title>Список заказов</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <h1>СПИСОК ЗАКАЗОВ</h1>
+    <ul>
+        {% for order in orders %}
+            <li>
+                {{ order.customer.name }} - {{ order.total_amount }} - {{ order.order_date }}
+                <a href="{% url 'delete_order' order.id %}" class="button">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_order' %}" class="button">Добавить заказ</a>
+    <a href="{% url 'home' %}" class="button">Перейти на главную страницу</a>
+</body>
+</div>
+</html>

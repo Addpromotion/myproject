@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cистема управления</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <h1>Добро пожаловать в систему управления</h1>
+    <div class="nav-links">
+        <a href="{% url 'customer_list' %}" class="button">Клиенты</a>
+        <a href="{% url 'product_list' %}" class="button">Продукты</a>
+        <a href="{% url 'order_list' %}" class="button">Заказы</a>
+    </div>
+</body>
+</html>

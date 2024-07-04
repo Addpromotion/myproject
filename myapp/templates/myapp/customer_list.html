@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список заказов клиентов</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<div class="nav-links">
+<body>
+    <h1>СПИСОК ЗАКАЗОВ КЛИЕНТОВ</h1>
+    <ul>
+        {% for customer in customers %}
+            <li>
+                {{ customer.name }} -
+                <a href="{% url 'delete_customer' customer.id %}" class="button">Удалить</a> |
+                <a href="{% url 'customer_orders' customer.id 'week' %}" class="button">За прошедшую неделю</a> |
+                <a href="{% url 'customer_orders' customer.id 'month' %}" class="button">За прошедший месяц</a> |
+                <a href="{% url 'customer_orders' customer.id 'year' %}" class="button">За прошедший год</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_customer' %}" class="button">Добавить клиента</a>
+    <a href="{% url 'home' %}" class="button">Перейти на главную страницу</a>
+</body>
+</div>
+</html>
